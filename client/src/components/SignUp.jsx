@@ -26,6 +26,14 @@ export default function SignUp() {
         throw new Error('Failed to create user');
       }
   
+      // Clear form data after successful submission
+      setFormData({
+        name: '',
+        username: '',
+        email: '',
+        password: ''
+      });
+  
       // Parse response data if it's not empty
       const data = res.status === 201 ? { message: 'User created successfully' } : res.data;
   
@@ -37,7 +45,8 @@ export default function SignUp() {
     } catch (error) {
       setError(error.message || 'Server error'); // Generic error message
     }
-};
+  };
+  
 
   
 
