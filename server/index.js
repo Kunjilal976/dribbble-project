@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 require('dotenv').config();
-
-const app = express();
+import path from 'path'
+;const app = express();
 const port = process.env.PORT || 3000;
 
 // Allow requests from localhost:5173
@@ -32,10 +32,17 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
+const __dirname=path.resolve();
+
 app.use(express.json());
 
 // Routes
 app.use('/dribbble/users', userRoutes);
+
+app.use(express.static(path.join(__dirname,'/client/dist')));
+app.get("*",(req,res)=>{
+  res.sendFile(path.join(__dirname,'client' ,'dist','index.html'));
+})
 
 // Start the server
 app.listen(port, () => {
