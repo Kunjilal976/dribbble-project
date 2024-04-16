@@ -32,7 +32,7 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-// const __dirname = path.resolve();
+const __dirname = path.resolve();
 
 app.use(express.json());
 
