@@ -24,6 +24,7 @@ mongoose.connect(process.env.UR).then(() => {
   console.log(err);
 });
 
+
 const db = mongoose.connection;
 db.on('error', (error) => {
   console.error('MongoDB connection error:', error);
