@@ -32,14 +32,15 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-const __dirname = path.resolve();
-
 app.use(express.json());
 
 // Routes
 app.use('/dribbble/users', userRoutes);
 
+// Serving static files
 app.use(express.static(path.join(__dirname, '/client/dist')));
+
+// Catch-all route to serve index.html
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
