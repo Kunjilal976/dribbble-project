@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 // Allow requests from localhost:5173
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://dribbble-project.vercel.app',
   optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 }));
 
