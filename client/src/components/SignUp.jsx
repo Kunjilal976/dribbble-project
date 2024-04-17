@@ -15,7 +15,7 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://122.15.204.67:3001/dribbble/users/signup", formData, {
+      const res = await axios.post("http://localhost:3001/dribbble/users/signup", formData, {
         headers: {
           "Content-Type": "application/json",
         },

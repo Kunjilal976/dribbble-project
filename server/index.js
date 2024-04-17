@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Allow requests from localhost:5173
-const allowedOrigins = ['https://dribbble-project-cis6.vercel.app', 'http://122.15.204.67:5173'];
+const allowedOrigins = ['https://dribbble-project-cis6.vercel.app', 'http://localhost:5173'];
 
 // CORS middleware configuration
 const corsOptions = {
