@@ -9,13 +9,21 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Allow requests from localhost:5173
-app.use(cors({
-  origin: 'https://dribbble-project.vercel.app',
-  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
-}));
+const allowedOrigins = ['https://dribbble-project-cis6.vercel.app', 'http://localhost:5173'];
 
-// General CORS middleware
-app.use(cors());
+// CORS middleware configuration
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+// Enable CORS middleware with options
+app.use(cors(corsOptions));
 
 // Connect to MongoDB
 mongoose.connect(process.env.UR).then(() => {
