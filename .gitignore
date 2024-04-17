@@ -22,4 +22,4 @@ node_modules
 .ntvs
 *.njsproj
 *.sln
-*.sw?
+*.sw?assets
