@@ -8,10 +8,8 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Allow requests from localhost:5173
 const allowedOrigins = ['https://dribbble-project-cis6.vercel.app', 'http://localhost:5173'];
 
-// CORS middleware configuration
 const corsOptions = {
   origin: function (origin, callback) {
     if (allowedOrigins.includes(origin) || !origin) {
@@ -22,7 +20,7 @@ const corsOptions = {
   },
 };
 
-// Enable CORS middleware with options
+
 app.use(cors(corsOptions));
 
 // Connect to MongoDB
